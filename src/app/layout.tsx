@@ -41,14 +41,23 @@ const menubarButtons: MenubarButtonProps[] = [
   },
 ];
 
-const MenubarButton = ({ displayName, href }: MenubarButtonProps) => {
+const Menubar = () => {
   return (
-    <div className="m-2">
-      <Button variant="ghost" asChild>
-        <Link href={href}>
-          <div className="font-bold text-xl">{displayName}</div>
-        </Link>
-      </Button>
+    <div className="flex flex-row border border-black justify-between items-center">
+      <div className="flex flex-row">
+        {menubarButtons.map((button) => {
+          return (
+            <div className="m-2">
+              <Button variant="ghost" asChild>
+                <Link href={button.href}>
+                  <div className="font-bold text-xl">{button.displayName}</div>
+                </Link>
+              </Button>
+            </div>
+          );
+        })}
+      </div>
+      social media icons
     </div>
   );
 };
@@ -63,19 +72,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="flex flex-row border border-black justify-between items-center">
-          <div className="flex flex-row">
-            {menubarButtons.map((button) => {
-              return (
-                <MenubarButton
-                  displayName={button.displayName}
-                  href={button.href}
-                />
-              );
-            })}
-          </div>
-          social media icons
-        </div>
+        <Menubar />
         {children}
       </body>
     </html>

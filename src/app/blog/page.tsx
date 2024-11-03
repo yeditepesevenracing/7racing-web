@@ -1,11 +1,5 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import Title from "@/components/common/title";
 
 interface BlogPreview {
   title: string;
@@ -33,6 +27,7 @@ const previews: BlogPreview[] = [
 const Blog = () => {
   return (
     <>
+      <Title text="What we are up to" />
       {previews.map((p) => {
         return <BlogPreviewCard title={p.title} contents={p.contents} />;
       })}
@@ -42,11 +37,11 @@ const Blog = () => {
 
 const BlogPreviewCard = ({ title, contents }: BlogPreview) => {
   return (
-    <Card className="m-5">
+    <Card className="m-10">
       <CardHeader className="text-4xl">
         <CardTitle>{title}</CardTitle>
       </CardHeader>
-      <CardContent>
+      <CardContent className="text-xl font-extralight">
         <p>{contents}</p>
       </CardContent>
     </Card>
