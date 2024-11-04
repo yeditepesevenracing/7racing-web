@@ -9,6 +9,7 @@ import Image from "next/image";
 interface MenubarButtonProps {
   displayName: string;
   href: string;
+  imagePath?: string;
 }
 
 const geistSans = localFont({
@@ -31,6 +32,7 @@ const menubarButtons: MenubarButtonProps[] = [
   {
     displayName: "7Racing logo",
     href: "/",
+    imagePath: "/logo-bg.png",
   },
   {
     displayName: "Team",
@@ -46,12 +48,21 @@ const Menubar = () => {
   return (
     <div className="fixed flex flex-row border border-grey justify-between items-center top-0 left-0 right-0 z-50 bg-white">
       <div className="flex flex-row">
-        {menubarButtons.map((button) => {
+        {menubarButtons.map(({ displayName, href, imagePath }) => {
           return (
             <div className="m-2">
               <Button variant="ghost" asChild>
-                <Link href={button.href}>
-                  <div className="font-bold text-xl">{button.displayName}</div>
+                <Link href={href}>
+                  {imagePath ? (
+                    <Image
+                      src={imagePath}
+                      width={36}
+                      height={36}
+                      alt={displayName}
+                    />
+                  ) : (
+                    <div className="font-bold text-xl">{displayName}</div>
+                  )}
                 </Link>
               </Button>
             </div>
