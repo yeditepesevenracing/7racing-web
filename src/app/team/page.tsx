@@ -87,13 +87,13 @@ const Team = () => {
     <>
       <Title text="Our Members" />
       <div className="m-10 grid grid-cols-2 gap-4">
-        {members.map((m) => {
+        {members.map(({ fullname, major, role, description }) => {
           return (
             <MemberCard
-              fullname={m.fullname}
-              major={m.major}
-              role={m.role}
-              description={m.description}
+              fullname={fullname}
+              major={major}
+              role={role}
+              description={description}
             />
           );
         })}
