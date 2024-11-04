@@ -53,7 +53,7 @@ const BlogPreviewCard = ({ title, contents, id }: BlogPreview) => {
             <CardTitle>{title}</CardTitle>
           </CardHeader>
           <CardContent className="text-xl font-extralight">
-            <p>{contents}</p>
+            <p className="line-clamp-2">{contents}</p>
           </CardContent>
         </Card>
       </Link>
