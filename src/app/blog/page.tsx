@@ -5,7 +5,7 @@ import Link from "next/link";
 interface BlogPreview {
   title: string;
   contents: string;
-  href: string;
+  id: number;
 }
 
 const previews: BlogPreview[] = [
@@ -13,19 +13,19 @@ const previews: BlogPreview[] = [
     title: "Lorem Ipsum",
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    href: "",
+    id: 0,
   },
   {
     title: "Lorem Ipsum",
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    href: "",
+    id: 1,
   },
   {
     title: "Lorem Ipsum",
     contents:
       "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
-    href: "",
+    id: 2,
   },
 ];
 
@@ -36,11 +36,7 @@ const Blog = () => {
       <div className="[&:hover>div]:opacity-50">
         {previews.map((p) => {
           return (
-            <BlogPreviewCard
-              title={p.title}
-              contents={p.contents}
-              href={p.href}
-            />
+            <BlogPreviewCard title={p.title} contents={p.contents} id={p.id} />
           );
         })}
       </div>
@@ -48,10 +44,10 @@ const Blog = () => {
   );
 };
 
-const BlogPreviewCard = ({ title, contents, href }: BlogPreview) => {
+const BlogPreviewCard = ({ title, contents, id }: BlogPreview) => {
   return (
     <div className="hover:!opacity-100">
-      <Link href={href}>
+      <Link href={`/blogpost/${id}`}>
         <Card className="m-10">
           <CardHeader className="text-4xl">
             <CardTitle>{title}</CardTitle>
