@@ -4,6 +4,7 @@ import "./globals.css";
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
+import Image from "next/image";
 
 interface MenubarButtonProps {
   displayName: string;
@@ -57,7 +58,41 @@ const Menubar = () => {
           );
         })}
       </div>
-      social media icons
+      <div className="flex flex-row">
+        <a
+          href="https://www.linkedin.com/company/yeditepe-university-seven-racing"
+          target="_blank"
+        >
+          <Image
+            src="/linkedin.png"
+            width={36}
+            height={36}
+            alt="Linkedin logo"
+            className="m-2"
+          />
+        </a>
+        <a
+          href="https://www.instagram.com/yeditepesevenracing/"
+          target="_blank"
+        >
+          <Image
+            src="/ig.svg"
+            width={36}
+            height={36}
+            alt="Instagram logo"
+            className="m-2"
+          />
+        </a>
+        <a href="https://github.com/yeditepesevenracing" target="_blank">
+          <Image
+            src="/gh.svg"
+            width={36}
+            height={36}
+            alt="GitHub logo"
+            className="m-2"
+          />
+        </a>
+      </div>
     </div>
   );
 };
