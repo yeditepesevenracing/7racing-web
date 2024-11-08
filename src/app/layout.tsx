@@ -94,6 +94,15 @@ const Menubar = () => {
             className="m-2"
           />
         </a>
+        <a href="https://www.tiktok.com/@sevenracing" target="_blank">
+          <Image
+            src="/tiktokcircle.png"
+            width={36}
+            height={36}
+            alt="GitHub logo"
+            className="m-2"
+          />
+        </a>
         <a href="https://github.com/yeditepesevenracing" target="_blank">
           <Image
             src="/gh.svg"
