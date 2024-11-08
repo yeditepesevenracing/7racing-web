@@ -34,9 +34,14 @@ const Blog = () => {
     <>
       <Title text="What we are up to" />
       <div className="[&:hover>div]:opacity-50">
-        {previews.map((p) => {
+        {previews.map((p, index) => {
           return (
-            <BlogPreviewCard title={p.title} contents={p.contents} id={p.id} />
+            <BlogPreviewCard
+              key={index}
+              title={p.title}
+              contents={p.contents}
+              id={p.id}
+            />
           );
         })}
       </div>
@@ -44,9 +49,12 @@ const Blog = () => {
   );
 };
 
-const BlogPreviewCard = ({ title, contents, id }: BlogPreview) => {
+const BlogPreviewCard = (
+  { title, contents, id }: BlogPreview,
+  index: number
+) => {
   return (
-    <div className="hover:!opacity-100">
+    <div className="hover:!opacity-100" key={index}>
       <Link href={`/blogpost/${id}`}>
         <Card className="m-10">
           <CardHeader className="text-4xl">

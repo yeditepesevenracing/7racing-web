@@ -48,9 +48,9 @@ const Menubar = () => {
   return (
     <div className="fixed flex flex-row border border-grey justify-between items-center top-0 left-0 right-0 z-50 bg-white">
       <div className="flex flex-row">
-        {menubarButtons.map(({ displayName, href, imagePath }) => {
+        {menubarButtons.map(({ displayName, href, imagePath }, index) => {
           return (
-            <div className="m-2">
+            <div className="m-2" key={index}>
               <Button variant="ghost" asChild>
                 <Link href={href}>
                   {imagePath ? (
