@@ -4,6 +4,8 @@
 
 ## Ekran Goruntuleri
 
+Bu ekran goruntuleri su an eski. Yeni hali icin siteyi calistirin.
+
 Ana ekran about ekrani olacak. Takim hakkinda genel bilgi icerecek.
 ![Ana ekran](screenshots/home.png)
 
@@ -12,6 +14,11 @@ Team ekrani ekip uyeleri hakkinda ufak bilgiler icerecek.
 
 Blog ekrani. Surec boyunca calismalarimizi blog seklinde websitemize yukleyebiliriz.
 ![Blog ekrani](screenshots/blog.png)
+
+## Yapilacaklar
+
+Gradienti guzellestir.
+[Gradient arkaplan icin link](https://bg.ibelick.com)
 
 ## Calistirmak icin
 
