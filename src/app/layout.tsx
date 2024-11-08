@@ -46,7 +46,7 @@ const menubarButtons: MenubarButtonProps[] = [
 
 const Menubar = () => {
   return (
-    <div className="fixed flex flex-row border border-grey justify-between items-center top-0 left-0 right-0 z-50 bg-white">
+    <div className="fixed flex flex-row border border-grey justify-between items-center top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md">
       <div className="flex flex-row">
         {menubarButtons.map(({ displayName, href, imagePath }, index) => {
           return (

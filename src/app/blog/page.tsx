@@ -54,7 +54,7 @@ const BlogPreviewCard = (
   index: number
 ) => {
   return (
-    <div className="hover:!opacity-100" key={index}>
+    <div className="hover:!opacity-100 transition-all duration-300" key={index}>
       <Link href={`/blogpost/${id}`}>
         <Card className="m-10">
           <CardHeader className="text-4xl">
