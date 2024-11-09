@@ -16,18 +16,6 @@ export default function Home() {
       <p className="mt-5 text-gray font-md">
         United by engineering. Driven by purpose.
       </p>
-      {/* <Paragraph className="mt-10 text-2xl text-gray">
-        Seven Racing, organized under Yeditepe University Mechanical Engineering
-        Department, is a racing team that brings engineering students together
-        and encourages them to work together on competition projects. We are
-        preparing to successfully represent our country in the Shell Eco
-        Marathon 2025 Competition in the Internal Combustion Engine Prototype
-        Concept. As a passionate and dedicated team, our goal is not only to
-        design vehicles, but also to be part of a movement that supports
-        sustainability and innovation. In the days to come, we aim to expand our
-        team's sphere of influence by growing and developing further, and to
-        inspire those who will take our place.
-      </Paragraph> */}
     </div>
   );
 }
