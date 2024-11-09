@@ -63,7 +63,7 @@ const socials: SocialMediaProps[] = [
   },
   {
     href: "https://www.youtube.com/channel/UC6mH-gplUv_qMa8t7b17sqA",
-    src: "/yt.png",
+    src: "/ytsquircle.png",
     alt: "YouTube logo",
   },
   {
