@@ -12,6 +12,12 @@ interface MenubarButtonProps {
   imagePath?: string;
 }
 
+interface SocialMediaProps {
+  href: string;
+  src: string;
+  alt: string;
+}
+
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
   variable: "--font-geist-sans",
@@ -44,84 +50,34 @@ const menubarButtons: MenubarButtonProps[] = [
   },
 ];
 
-const Menubar = () => {
-  return (
-    <div className="fixed flex flex-row border border-grey justify-between items-center top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md">
-      <div className="flex flex-row">
-        {menubarButtons.map(({ displayName, href, imagePath }, index) => {
-          return (
-            <div className="m-2" key={index}>
-              <Button variant="ghost" asChild>
-                <Link href={href}>
-                  {imagePath ? (
-                    <Image
-                      src={imagePath}
-                      width={36}
-                      height={36}
-                      alt={displayName}
-                    />
-                  ) : (
-                    <div className="font-bold text-xl">{displayName}</div>
-                  )}
-                </Link>
-              </Button>
-            </div>
-          );
-        })}
-      </div>
-      <div className="flex flex-row">
-        <a
-          href="https://www.linkedin.com/company/yeditepe-university-seven-racing"
-          target="_blank"
-        >
-          <Image
-            src="/linkedin.png"
-            width={36}
-            height={36}
-            alt="Linkedin logo"
-            className="m-2"
-          />
-        </a>
-        <a
-          href="https://www.instagram.com/yeditepesevenracing/"
-          target="_blank"
-        >
-          <Image
-            src="/ig.svg"
-            width={36}
-            height={36}
-            alt="Instagram logo"
-            className="m-2"
-          />
-        </a>
-        <a href="https://www.tiktok.com/@sevenracing" target="_blank">
-          <Image
-            src="/tiktokcircle.png"
-            width={36}
-            height={36}
-            alt="GitHub logo"
-            className="m-2"
-          />
-        </a>
-        <a href="https://github.com/yeditepesevenracing" target="_blank">
-          <Image
-            src="/gh.svg"
-            width={36}
-            height={36}
-            alt="GitHub logo"
-            className="m-2"
-          />
-        </a>
-      </div>
-    </div>
-  );
-};
+const socials: SocialMediaProps[] = [
+  {
+    href: "https://www.linkedin.com/company/yeditepe-university-seven-racing",
+    src: "/linkedin.png",
+    alt: "Linkedin logo",
+  },
+  {
+    href: "https://www.instagram.com/yeditepesevenracing/",
+    src: "/ig.svg",
+    alt: "Instagram logo",
+  },
+  {
+    href: "https://www.tiktok.com/@sevenracing",
+    src: "/tiktokcircle.png",
+    alt: "TikTok logo",
+  },
+  {
+    href: "https://github.com/yeditepesevenracing",
+    src: "/gh.svg",
+    alt: "GitHub logo",
+  },
+];
 
-export default function RootLayout({
+const RootLayout = ({
   children,
 }: Readonly<{
   children: React.ReactNode;
-}>) {
+}>) => {
   return (
     <html lang="en">
       <body
@@ -132,4 +88,56 @@ export default function RootLayout({
       </body>
     </html>
   );
-}
+};
+
+const Menubar = () => {
+  return (
+    <div className="fixed flex flex-row border border-grey justify-between items-center top-0 left-0 right-0 z-50 bg-white/70 backdrop-blur-md">
+      <div className="flex flex-row">
+        {menubarButtons.map(({ displayName, href, imagePath }, index) => (
+          <MenubarButton
+            displayName={displayName}
+            href={href}
+            imagePath={imagePath}
+            key={index}
+          />
+        ))}
+      </div>
+      <div className="flex flex-row">
+        {socials.map(({ href, src, alt }: SocialMediaProps, index: number) => (
+          <SocialMediaIcon href={href} src={src} alt={alt} key={index} />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+const MenubarButton = ({
+  displayName,
+  href,
+  imagePath,
+}: MenubarButtonProps) => {
+  return (
+    <div className="m-2">
+      <Button variant="ghost" asChild>
+        <Link href={href}>
+          {imagePath ? (
+            <Image src={imagePath} width={36} height={36} alt={displayName} />
+          ) : (
+            <div className="font-bold text-xl">{displayName}</div>
+          )}
+        </Link>
+      </Button>
+    </div>
+  );
+};
+
+const SocialMediaIcon = ({ href, src, alt }: SocialMediaProps) => {
+  return (
+    <a href={href} target="_blank">
+      <Image src={src} width={36} height={36} alt={alt} className="m-2" />
+    </a>
+  );
+};
+
+export default RootLayout;
