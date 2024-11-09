@@ -14,6 +14,8 @@ const BlogPost = async ({ params }: { params: Promise<{ id: number }> }) => {
       <div>
         <Title text="Lorem Ipsum" className="items-center" />
       </div>
+      <Paragraph first>{dummy}</Paragraph>
+      <Paragraph>{dummy}</Paragraph>
       <Paragraph>{dummy}</Paragraph>
     </div>
   );
