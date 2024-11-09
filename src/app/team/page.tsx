@@ -85,7 +85,7 @@ const members: Member[] = [
 const Team = () => {
   return (
     <>
-      <Title text="Our Members" />
+      <Title text="Our Members" className="m-10" />
       <div className="m-10 grid grid-cols-2 gap-4">
         {members.map(({ fullname, major, role, description }, index) => {
           return (

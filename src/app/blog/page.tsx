@@ -32,7 +32,7 @@ const previews: BlogPreview[] = [
 const Blog = () => {
   return (
     <>
-      <Title text="What we are up to" />
+      <Title text="What we are up to" className="m-10" />
       <div className="[&:hover>div]:opacity-50">
         {previews.map((p, index) => {
           return (
