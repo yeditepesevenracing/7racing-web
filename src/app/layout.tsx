@@ -62,6 +62,11 @@ const socials: SocialMediaProps[] = [
     alt: "Instagram logo",
   },
   {
+    href: "https://www.youtube.com/channel/UC6mH-gplUv_qMa8t7b17sqA",
+    src: "/yt.png",
+    alt: "YouTube logo",
+  },
+  {
     href: "https://www.tiktok.com/@sevenracing",
     src: "/tiktokcircle.png",
     alt: "TikTok logo",
@@ -118,16 +123,16 @@ const MenubarButton = ({
   imagePath,
 }: MenubarButtonProps) => {
   return (
-    <div className="m-2">
-      <Button variant="ghost" asChild>
-        <Link href={href}>
-          {imagePath ? (
-            <Image src={imagePath} width={36} height={36} alt={displayName} />
-          ) : (
-            <div className="font-bold text-xl">{displayName}</div>
-          )}
-        </Link>
-      </Button>
+    <div className="my-2 mx-4">
+      {/* <Button variant="ghost" asChild> */}
+      <Link href={href}>
+        {imagePath ? (
+          <Image src={imagePath} width={36} height={36} alt={displayName} />
+        ) : (
+          <div className="font-bold text-xl mt-1">{displayName}</div>
+        )}
+      </Link>
+      {/* </Button> */}
     </div>
   );
 };
