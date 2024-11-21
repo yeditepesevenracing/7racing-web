@@ -9,9 +9,11 @@ import { useRef } from "react";
 export default function Home() {
   const logoRef = useRef<HTMLDivElement>(null);
   const aboutRef = useRef<HTMLDivElement>(null);
+  const contactRef = useRef<HTMLDivElement>(null);
 
   const isVisibleLogo = useIsVisible(logoRef);
   const isVisibleAbout = useIsVisible(aboutRef);
+  const isVisibleContact = useIsVisible(contactRef);
 
   // relative flex flex-col items-center min-h-screen [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#269b76_100%)] -z-10
   return (
@@ -58,6 +60,28 @@ export default function Home() {
             growing and developing further, and to inspire those who will take
             our place.{" "}
           </p>
+        </div>
+
+        <div
+          // className="border rounded-lg m-[500px] bg-black/20 p-5"
+          className={`border rounded-lg m-[300px] bg-black/20 p-5 transition-opacity ease-in duration-700 mx-20 ${
+            isVisibleContact ? "opacity-100" : "opacity-0"
+          }`}
+          ref={contactRef}
+        >
+          <div className="flex flex-col">
+            <Title text="Contact us" className="my-5" />
+            <div className="flex flex-row">
+              <Image
+                src="/furkan.webp"
+                width={480}
+                height={480}
+                alt="Team logo"
+                // className="mx-20"
+              />
+              <p className="font-bold text-2xl">Furkan Yilmaztekin</p>
+            </div>
+          </div>
         </div>
       </div>
     </>
