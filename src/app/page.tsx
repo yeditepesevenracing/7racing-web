@@ -17,10 +17,7 @@ export default function Home() {
   return (
     <>
       <div className="fixed inset-0 -z-10 h-full w-full bg-white [background:radial-gradient(125%_125%_at_50%_10%,#fff_40%,#269b76_100%)]"></div>
-      <div
-        onScroll={() => console.log("hello")}
-        className="flex flex-col items-center"
-      >
+      <div className="flex flex-col items-center">
         <div
           ref={logoRef}
           className={`flex flex-col items-center transition-opacity ease-in duration-700 ${
@@ -42,11 +39,12 @@ export default function Home() {
 
         <div
           // className="border rounded-lg m-[500px] bg-black/20 p-5"
-          className={`border rounded-lg m-[500px] bg-black/20 p-5 transition-opacity ease-in duration-700 ${
+          className={`border rounded-lg m-[300px] bg-black/20 p-5 transition-opacity ease-in duration-700 mx-20 ${
             isVisibleAbout ? "opacity-100" : "opacity-0"
           }`}
           ref={aboutRef}
         >
+          <Title text="About us" className="my-5" />
           <p className="font-bold text-2xl">
             Seven Racing, organized under Yeditepe University Mechanical
             Engineering Department, is a racing team that brings engineering
